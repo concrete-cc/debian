@@ -1,0 +1,7 @@
+[Unit]
+Description=Apt Upgrade
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/apt-get upgrade --yes

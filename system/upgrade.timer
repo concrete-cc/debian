@@ -1,0 +1,10 @@
+[Unit]
+Description=Apt Upgrade
+
+[Timer]
+Unit=upgrade.service
+OnUnitActiveSec=12min
+OnBootSec=12min
+
+[Install]
+WantedBy=timers.target

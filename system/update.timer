@@ -1,0 +1,10 @@
+[Unit]
+Description=Apt Update
+
+[Timer]
+Unit=update.service
+OnUnitActiveSec=8min
+OnBootSec=8min
+
+[Install]
+WantedBy=timers.target

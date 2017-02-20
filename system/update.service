@@ -1,0 +1,7 @@
+[Unit]
+Description=Apt Update
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/apt-get update
