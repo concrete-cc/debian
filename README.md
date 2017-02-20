@@ -13,7 +13,6 @@ docker run -d \
            --cap-add DAC_READ_SEARCH \
            --tmpfs /run \
            --tmpfs /run/lock \
-           --stop-signal=SIGRTMIN+3 \
            -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
            concrete_base_debian:{tag}
 ```

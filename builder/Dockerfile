@@ -29,4 +29,6 @@ ADD ./system/* /etc/systemd/system/
 RUN systemctl enable update.timer
 RUN systemctl enable upgrade.timer
 
+STOPSIGNAL SIGRTMIN+3
+
 CMD ["/sbin/init"]
