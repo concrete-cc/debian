@@ -4,7 +4,7 @@
 # Build
 docker  build --no-cache \
               -f ./builder/Dockerfile \
-              -t $(basename $(pwd)):$(git rev-parse --abbrev-ref HEAD)-$(git rev-parse --short $target_env) . \
+              -t $(basename $(pwd)):$(git rev-parse --abbrev-ref HEAD)-$(git rev-parse --short HEAD) . \
               --no-cache
 
 # Run
