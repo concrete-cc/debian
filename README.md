@@ -14,5 +14,6 @@ docker run -d \
            --tmpfs /run \
            --tmpfs /run/lock \
            -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
-           concrete_base_debian:{tag}
+           concrete_base_debian:{tag} \
+           --no-cache
 ```
