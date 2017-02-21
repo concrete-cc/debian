@@ -4,7 +4,8 @@
 # Build
 docker  build --no-cache \
               -f ./builder/Dockerfile \
-              -t $(basename $(pwd)):$(git rev-parse --abbrev-ref HEAD)-$(git rev-parse --short $target_env) .
+              -t $(basename $(pwd)):$(git rev-parse --abbrev-ref HEAD)-$(git rev-parse --short $target_env) . \
+              --no-cache
 
 # Run
 docker run -d \
@@ -14,6 +15,5 @@ docker run -d \
            --tmpfs /run \
            --tmpfs /run/lock \
            -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
-           concrete_base_debian:{tag} \
-           --no-cache
+           concrete_base_debian:{tag}
 ```
