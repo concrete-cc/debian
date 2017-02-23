@@ -18,7 +18,8 @@ RUN apt install -y systemd \
 	lsof \
 	iotop \
 	man-db \
-	manpages
+	manpages \
+	bash-completion
 
 # Set locales - Docker way (will change in future commit)
 RUN echo "en_GB.UTF-8 UTF-8" >> /etc/locale.gen
@@ -32,6 +33,9 @@ ENV LC_CTYPE en_GB.UTF-8
 ADD ./system/* /etc/systemd/system/
 RUN systemctl enable update.timer
 RUN systemctl enable upgrade.timer
+
+#Bash autocompletion
+ADD bash.bashrc /etc/bash.bashrc
 
 STOPSIGNAL SIGRTMIN+3
 
