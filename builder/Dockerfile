@@ -37,6 +37,13 @@ RUN systemctl enable upgrade.timer
 #Bash autocompletion
 ADD bash.bashrc /etc/bash.bashrc
 
+#Systemd settings
+RUN sed -i -r 's/#DefaultCPUAccounting=.*/DefaultCPUAccounting=yes/' /etc/systemd/system.conf
+RUN sed -i -r 's/#DefaultIOAccounting=.*/DefaultIOAccounting=yes/' /etc/systemd/system.conf
+RUN sed -i -r 's/#DefaultBlockIOAccounting=.*/DefaultBlockIOAccounting=yes/' /etc/systemd/system.conf
+RUN sed -i -r 's/#DefaultMemoryAccounting=.*/DefaultMemoryAccounting=yes/' /etc/systemd/system.conf
+RUN sed -i -r 's/#DefaultTasksAccounting=.*/DefaultTasksAccounting=yes/' /etc/systemd/system.conf
+
 STOPSIGNAL SIGRTMIN+3
 
 CMD ["/sbin/init"]
