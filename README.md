@@ -1,12 +1,13 @@
 # Concrete Platform's Base Debian Docker Image
 
-```bash
+```
 IMAGE_TAG=some_name
-
-# Build
+```
+## Build
 docker build -f ./builder/Dockerfile -t $IMAGE_TAG . --no-cache
 
-# Run
+## Run
+```
 docker run -d \
            --name $IMAGE_TAG \
            --cap-add=SYS_ADMIN \
@@ -18,11 +19,20 @@ docker run -d \
            --log-opt \
            -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
            $IMAGE_TAG:latest
+```
 
-
-# Development Build
+## Development Build
+```
 docker  build --no-cache \
              -f ./builder/Dockerfile \
              -t $(basename $(pwd)):$(git rev-parse --abbrev-ref HEAD)-$(git rev-parse --short HEAD) . \
              --no-cache
 ```
+
+## Pre-build image on Dockerhub
+https://hub.docker.com/r/concreteplatform/debian/
+```
+docker pull concreteplatform/debian
+```
+
+
