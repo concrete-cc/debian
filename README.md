@@ -4,7 +4,9 @@
 IMAGE_TAG=some_name
 ```
 ## Build
+```
 docker build -f ./builder/Dockerfile -t $IMAGE_TAG . --no-cache
+```
 
 ## Run
 ```
